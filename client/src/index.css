@@ -1,0 +1,161 @@
+/* client/src/index.css */
+
+/* Define CSS Variables for colors */
+:root {
+  --body-bg: #ffffff; /* Light mode background */
+  --text-color: #212529; /* Light mode text */
+  --card-bg: #f8f9fa; /* Light mode card background */
+  --card-border: #dee2e6; /* Light mode card border */
+  --navbar-bg: #343a40; /* Bootstrap dark navbar default color */
+  --navbar-text: #f8f9fa; /* Bootstrap dark navbar default text color */
+  --link-color: #007bff; /* Bootstrap primary blue */
+  --link-hover-color: #0056b3;
+  --title-bg: #e9ecef; /* Light gray for title box background */
+  --title-border: #adb5bd; /* Border for title box */
+  --title-text: #343a40; /* Dark text for title */
+}
+
+/* Dark mode overrides (applied when <body> has 'dark-mode' class) */
+body.dark-mode {
+  --body-bg: #212529; /* Dark mode background */
+  --text-color: #f8f9fa; /* Dark mode text */
+  --card-bg: #343a40; /* Dark mode card background */
+  --card-border: #495057; /* Dark mode card border */
+  --navbar-bg: #000000; /* Black navbar for dark mode */
+  --navbar-text: #f8f9fa;
+  --link-color: #17a2b8; /* Bootstrap info blue (lighter for dark mode) */
+  --link-hover-color: #138496;
+  --title-bg: #495057; /* Darker gray for title box */
+  --title-border: #6c757d;
+  --title-text: #f8f9fa; /* Light text for title */
+}
+
+/* Apply variables to general elements */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--body-bg); /* Use CSS variable for background */
+  color: var(--text-color); /* Use CSS variable for text color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition between modes */
+}
+
+/* Specific Bootstrap elements overrides to use our variables */
+/* !important is often needed to override Bootstrap's default specificity */
+.navbar.bg-dark {
+    background-color: var(--navbar-bg) !important;
+}
+
+.navbar-brand, .nav-link, .btn-outline-light {
+    color: var(--navbar-text) !important;
+}
+
+.card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--card-border) !important;
+    color: var(--text-color) !important; /* Ensure general card text adapts */
+}
+
+/* Ensure text inside book cards adapts */
+.card-title, .card-text {
+    color: var(--text-color) !important;
+}
+
+/* Custom book card info background */
+.book-card-info {
+    background-color: var(--card-bg) !important;
+}
+
+/* Link colors */
+a {
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* NEW: Styles for the Main Title (Virtual Library) */
+.main-title-container {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px 0; /* Vertical padding */
+    margin-top: 20px; /* Space from navbar */
+    flex-wrap: wrap; /* Allow wrapping if content is too wide */
+}
+
+.main-title-box {
+    background-color: var(--title-bg);
+    border: 1px solid var(--title-border);
+    border-radius: 15px; /* Rounded corners for the box */
+    padding: 20px 40px; /* Inner padding for the box */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    /* Smooth transitions for dark mode changes */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-title-box h1 {
+    margin: 0; /* Remove default h1 margin */
+    font-size: 3em; /* Make the title big */
+    color: var(--title-text); /* Use CSS variable for text color */
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for dark mode */
+}
+
+/* client/src/index.css */
+
+/* Define CSS Variables for colors */
+:root {
+  /* ... (your existing light mode variables) ... */
+  --card-text-color: #212529; /* Default text color for card content */
+  --card-author-color: #6c757d; /* Muted text color for authors in light mode */
+  --muted-text-color: #6c757d; /* For <small> tags and other muted text */
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+  /* ... (your existing dark mode variables) ... */
+  --card-text-color: #f8f9fa; /* Lighter text for card content in dark mode */
+  --card-author-color: #adb5bd; /* Even lighter muted text for authors in dark mode */
+  --muted-text-color: #ced4da; /* Lighter muted text for dark mode */
+}
+
+/* Apply variables to general elements */
+body {
+  /* ... (your existing body styles) ... */
+}
+
+/* Bootstrap elements override */
+/* ... (your existing navbar and .card styles) ... */
+
+/* Ensure text inside book cards adapts using these specific variables */
+/* These target Bootstrap's default .card-title, .card-text within any .card */
+.card-title {
+    color: var(--card-text-color) !important;
+}
+.card-text {
+    color: var(--card-author-color) !important;
+}
+/* For the "Checked Out" small text in borrowed books section */
+.card-body .text-muted {
+    color: var(--muted-text-color) !important;
+}
+
+/* For your custom book-card components' specific text (e.g., in the Dashboard's book display) */
+.book-card-info { /* The background behind title/author in the small book cards */
+    background-color: var(--card-bg) !important;
+}
+.book-card-info h5.book-card-title {
+    color: var(--card-text-color) !important;
+}
+.book-card-info p.book-card-author {
+    color: var(--card-author-color) !important;
+}
+
+/* ... (rest of your index.css) ... */

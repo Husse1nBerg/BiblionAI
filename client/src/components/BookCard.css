@@ -1,0 +1,123 @@
+/* client/src/components/BookCard.css */
+
+.book-card-container {
+  perspective: 1000px; /* For 3D transformations */
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.book-card-clickable { /* Wrapper for clickability and hover effect */
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  width: 100%;
+  cursor: pointer; /* Indicates it's clickable */
+}
+
+.book-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  transform-style: preserve-3d;
+}
+
+.book-card-clickable:hover .book-card { /* Apply hover effects to the card via its clickable parent */
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+.book-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.book-card-info {
+  padding: 15px;
+  text-align: center;
+  background-color: #f8f9fa;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book-card-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.book-card-author {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.book-card-details-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Starts hidden */
+    background: rgba(0, 0, 0, 0.85); /* Darker overlay */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: height 0.3s ease-out, opacity 0.3s ease-out;
+    text-align: center;
+}
+
+.book-card-clickable:hover .book-card-details-overlay { /* Apply hover effect to overlay */
+    height: 100%;
+    opacity: 1;
+}
+
+.book-card-details-overlay h5 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: white;
+}
+.book-card-details-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(0, 0, 0, 0.85); /* This is a dark, semi-transparent background */
+    color: white; /* <-- ADD THIS LINE: Explicitly set text color to white */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: height 0.3s ease-out, opacity 0.3s ease-out;
+    text-align: center;
+}
+
+.book-card-favorite-btn-wrapper {
+  position: absolute;
+  top: 5px; /* Adjust as needed for padding from top */
+  right: 5px; /* Adjust as needed for padding from right */
+  z-index: 10; /* Ensure it's above other elements like overlay */
+}

@@ -1,0 +1,35 @@
+{
+  "name": "virtual-library-app",
+  "version": "1.0.0",
+  "description": "A virtual library application with AI integration and payment processing.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build-client": "npm install --prefix client && npm run build --prefix client",
+    "postinstall": "npm run build-client",
+    "build-server": "npm install --prefix server && npm run build --prefix server",
+    "postinstall-server": "npm run build-server"
+  },
+
+
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "openai": "^4.47.1",
+    "pg": "^8.11.5",
+    "stripe": "^15.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.1"
+  }
+}

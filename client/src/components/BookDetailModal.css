@@ -1,0 +1,184 @@
+/* client/src/components/BookDetailModal.css */
+
+.modal-content {
+  background: white; /* Default light background */
+  color: #333; /* Default dark text */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease-out forwards;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Explicit text colors for elements within the modal */
+.modal-content h2,
+.modal-content h5,
+.modal-content p,
+.modal-content strong,
+.modal-content small,
+.modal-content a {
+    color: #333; /* Dark text for light mode */
+}
+
+.modal-content p.text-muted {
+    color: #6c757d;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .modal-content {
+    background-color: var(--card-bg); /* Use card background variable for dark mode modal */
+    color: var(--card-text-color); /* Use card text color variable for dark mode modal text */
+}
+
+body.dark-mode .modal-content h2,
+body.dark-mode .modal-content h5,
+body.dark-mode .modal-content p,
+body.dark-mode .modal-content strong,
+body.dark-mode .modal-content small,
+body.dark-mode .modal-content a {
+    color: var(--card-text-color) !important;
+}
+
+body.dark-mode .modal-content p.text-muted {
+    color: var(--card-author-color) !important;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+
+.modal-close-button:hover {
+  color: #333;
+}
+
+body.dark-mode .modal-close-button {
+    color: var(--card-text-color) !important;
+}
+
+body.dark-mode .modal-close-button:hover {
+    color: var(--navbar-text) !important;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Above Bootstrap navbars, etc. */
+  animation: fadeIn 0.3s forwards; /* Simple fade-in for backdrop */
+}
+
+.modal-content {
+  /* Default (light mode) styles for the modal content */
+  background: white;
+  color: #333; /* Base text color for light mode modal */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease-out forwards;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Explicit text colors for elements within the modal content (light mode) */
+.modal-content h2,
+.modal-content h5,
+.modal-content p,
+.modal-content strong,
+.modal-content small,
+.modal-content a {
+    color: #333;
+}
+
+.modal-content p.text-muted {
+    color: #666;
+}
+
+/* Dark mode adaptations for the modal content */
+body.dark-mode .modal-content {
+    background-color: var(--card-bg);
+    color: var(--card-text-color);
+}
+
+body.dark-mode .modal-content h2,
+body.dark-mode .modal-content h5,
+body.dark-mode .modal-content p,
+body.dark-mode .modal-content strong,
+body.dark-mode .modal-content small,
+body.dark-mode .modal-content a {
+    color: var(--card-text-color) !important;
+}
+
+body.dark-mode .modal-content p.text-muted {
+    color: var(--card-author-color) !important;
+}
+
+/* Styling for the close button */
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+  cursor: pointer;
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+  border: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal-close-button:hover {
+  opacity: 0.8;
+}
+
+body.dark-mode .modal-close-button {
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px) scale(0.9); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Positioning for the 'Go to Full Page' button and the heart button */
+.modal-content .col-md-4 {
+    position: relative; /* Make sure this is relative for absolute positioning */
+}
+
+
+
+/* Styling for the heart icon button */
+.modal-favorite-btn-wrapper {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 10;
+}

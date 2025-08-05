@@ -1,0 +1,46 @@
+/* client/src/components/FavoriteButton.css */
+
+.favorite-button {
+  background: rgba(255, 255, 255, 0.7); /* Slightly translucent white background */
+  border: none;
+  border-radius: 50%; /* Circular button */
+  cursor: pointer;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em; /* Size of the heart icon */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.favorite-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.favorite-button svg {
+  color: #ccc; /* Default grey for not favorited */
+  transition: color 0.2s ease;
+}
+
+.favorite-button.favorited svg {
+  color: #ff0000; /* Red when favorited */
+}
+
+/* Dark mode specific adjustments for the button */
+body.dark-mode .favorite-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .favorite-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
