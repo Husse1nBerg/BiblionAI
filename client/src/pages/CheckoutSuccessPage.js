@@ -74,7 +74,7 @@ const CheckoutSuccessPage = () => {
         setMessage('Error verifying payment. Please contact support if problem persists.');
         setLoading(false);
     });
-  }, [stripe, location, clearCart, api]); // Add api to dependency array
+  }, [stripe, location, clearCart]); 
 
   const handleGoToDashboard = () => {
     navigate('/dashboard');

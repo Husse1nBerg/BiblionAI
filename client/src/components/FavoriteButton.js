@@ -72,6 +72,7 @@ const FavoriteButton = ({ bookIdInDb, isFavoritedInitially = false, onFavoriteSt
       ) : (
         <FontAwesomeIcon icon={isFavorited ? faHeartSolid : faHeartRegular} />
       )}
+      {error && <span className="text-danger ms-2">{error}</span>}
     </button>
   );
 };
