@@ -2,19 +2,15 @@
   "name": "virtual-library-app",
   "version": "1.0.0",
   "description": "A virtual library application with AI integration and payment processing.",
-  "main": "server/server.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "server": "nodemon server/server.js",
+    "start": "node api/index.js",
+    "server": "nodemon api/index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build-client": "npm install --prefix client && npm run build --prefix client",
-    "postinstall": "npm run build-client",
-    "build-server": "npm install --prefix server && npm run build --prefix server",
-    "postinstall-server": "npm run build-server"
+    "build": "npm run build --prefix client",
+    "vercel-build": "cd client && npm install && npm run build"
   },
-
-
   "keywords": [],
   "author": "Your Name",
   "license": "ISC",
@@ -25,6 +21,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.13",
     "openai": "^4.47.1",
     "pg": "^8.11.5",
     "stripe": "^15.8.0"
