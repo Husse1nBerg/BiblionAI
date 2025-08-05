@@ -8,11 +8,10 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// IMPORTANT: Middleware must be placed before the route definitions.
 app.use(cors());
 app.use(express.json());
 
-// Load route files from the new 'server' subdirectory
+// Load route files
 const authRoutes = require('../server/routes/auth');
 const bookRoutes = require('../server/routes/books');
 const reviewRoutes = require('../server/routes/reviews');
@@ -20,7 +19,7 @@ const aiRoutes = require('../server/routes/ai');
 const stripeRoutes = require('../server/routes/stripe');
 const userRoutes = require('../server/routes/users');
 
-// Use the route handlers for specific paths
+// Corrected Vercel-friendly route paths
 app.use('/auth', authRoutes); // <-- CHANGED from '/api/auth' to '/auth'
 app.use('/books', bookRoutes);
 app.use('/reviews', reviewRoutes);
@@ -33,5 +32,4 @@ app.get('/', (req, res) => {
   res.send('API is running.');
 });
 
-// IMPORTANT: For Vercel, you need to export the app instance.
 module.exports = app;
