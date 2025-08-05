@@ -6,11 +6,11 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 
-// Load route files from the new 'server' subdirectory
 const authRoutes = require('../server/routes/auth');
 const bookRoutes = require('../server/routes/books');
 const reviewRoutes = require('../server/routes/reviews');
@@ -18,7 +18,7 @@ const aiRoutes = require('../server/routes/ai');
 const stripeRoutes = require('../server/routes/stripe');
 const userRoutes = require('../server/routes/users');
 
-// Correct Express paths (must match the first part of the Vercel URL path after /api/)
+// The Vercel route in vercel.json handles the '/api' prefix, so Express paths start from there.
 app.use('/auth', authRoutes);
 app.use('/books', bookRoutes);
 app.use('/reviews', reviewRoutes);
@@ -26,6 +26,7 @@ app.use('/ai', aiRoutes);
 app.use('/stripe', stripeRoutes);
 app.use('/users', userRoutes);
 
+// A simple root path for Vercel's Serverless Function to respond to
 app.get('/', (req, res) => {
   res.send('API is running.');
 });
