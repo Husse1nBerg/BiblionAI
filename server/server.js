@@ -24,8 +24,7 @@ app.use('/api/ai', aiRoutes);
 app.use('/api/stripe', stripeRoutes);
 app.use('/api/users', userRoutes);
 
-// This block is no longer needed for Vercel
-/*
+
 if (process.env.NODE_ENV === 'production') {
     const path = require('path');
     app.use(express.static(path.join(__dirname, '../client/build')));
@@ -33,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
     });
 }
-*/
+
 
 // Start the server by listening on the specified port
 app.listen(PORT, () => {
