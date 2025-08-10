@@ -16,4 +16,4 @@ router.post('/purchase-confirm', auth, bookController.purchaseConfirmation);
 router.post('/register-in-db', auth, bookController.registerBookInDb);
 
 module.exports = router;
-module.exports = router;
+
