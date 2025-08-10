@@ -4,10 +4,11 @@
   "description": "Backend for the Virtual Library App",
   "main": "server.js",
   "type": "commonjs",
-  "scripts": {
-    "start": "node server.js",
+ "scripts": {
+   "start": "node ${RENDER_SRC_ROOT}/server/server.js",
     "dev": "nodemon server.js"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,3 +21,4 @@
     "openai": "^5.5.1"
   }
 }
+
