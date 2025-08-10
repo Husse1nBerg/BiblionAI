@@ -1,7 +1,7 @@
 // client/src/pages/LoginPage.js
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import api from '../api';
+import api from '../api.js';
 import AuthContext from '../context/AuthContext';
 
 const LoginPage = () => {

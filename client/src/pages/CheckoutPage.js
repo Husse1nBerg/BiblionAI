@@ -5,7 +5,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from '../components/CheckoutForm';
 import CartContext from '../context/CartContext';
-import api from '../api';
+import api from '../api.js';
 
 // IMPORTANT: Load Stripe using the REACT_APP_ prefix
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);

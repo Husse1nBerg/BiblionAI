@@ -1,6 +1,6 @@
 // client/src/pages/FavoritesPage.js
 import React, { useState, useEffect, useContext, useCallback } from 'react'; // <-- ADD useCallback
-import api from '../api';
+import api from '../api.js';
 import AuthContext from '../context/AuthContext';
 import BookCard from '../components/BookCard'; // <-- Ensure BookCard is imported
 import { Link, useNavigate } from 'react-router-dom';

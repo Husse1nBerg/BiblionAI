@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CartContext from '../context/CartContext';
-import api from '../api'; // <-- ENSURE THIS IS IMPORTED
+import api from '../api.js'; 
 
 const CheckoutSuccessPage = () => {
   const stripe = useStripe();

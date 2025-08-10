@@ -1,6 +1,6 @@
 // client/src/pages/DashboardPage.js
 import React, { useState, useEffect, useContext } from 'react';
-import api from '../api';
+import api from '../api.js';
 import BookCard from '../components/BookCard';
 import SearchBar from '../components/SearchBar';
 import AuthContext from '../context/AuthContext';
