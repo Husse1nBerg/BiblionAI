@@ -2,9 +2,9 @@
   "name": "virtual-library-app",
   "version": "1.0.0",
   "description": "A virtual library application with AI integration and payment processing.",
-  "main": "api/index.js",
-  "scripts": {
-    "start": "node api/index.js",
+  "main": "server/server.js",
+"scripts": {
+    "start": "node server/server.js",
     "server": "nodemon api/index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",

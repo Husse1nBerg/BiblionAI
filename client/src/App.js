@@ -99,7 +99,7 @@ function App() {
             {/* NEW: Big Title Container - Placed outside the main container for full width */}
             <div className="main-title-container">
               <div className="main-title-box">
-                <h1>Virtual Library</h1>
+                <h1>Biblion AI</h1>
               </div>
             </div>
             {/* End NEW Title */}
