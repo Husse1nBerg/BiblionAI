@@ -1,15 +1,12 @@
 {
-  "name": "virtual-library-app",
-  "version": "1.0.0",
-  "description": "A virtual library application with AI integration and payment processing.",
-  "main": "server/server.js",
+"main": "server/server.js",
 "scripts": {
-    "start": "node server/server.js",
-    "server": "nodemon api/index.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-  },
+  "start": "node server/server.js",
+  "server": "nodemon server/server.js",
+  "client": "npm start --prefix client",
+  "dev": "concurrently \"npm run server\" \"npm run client\"",
+  "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+},
   "keywords": [],
   "author": "Your Name",
   "license": "ISC",
